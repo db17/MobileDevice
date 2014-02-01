@@ -466,7 +466,7 @@ def CFTypeTo(value):
 		bufsize = CFStringGetMaximumSizeForEncoding(l, kCFStringEncodingUTF8) + 1
 		buf = create_string_buffer(bufsize)
 		CFStringGetCString(value, buf, bufsize, kCFStringEncodingUTF8)
-		retval = buf.value
+		retval = buf.value.decode("utf8")
 	elif typeid == CFDataGetTypeID():
 		retval = string_at(CFDataGetBytePtr(value), CFDataGetLength(value))
 
